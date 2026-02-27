@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_7.4.3.xsd" xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <grid name="stock-location-line-details-grid" title="Stock Locations content" model="com.axelor.apps.stock.db.StockLocationLine" extension="true" edit-icon="true">
+  <extend target="/field[name='rack']">
+   <insert position="after">
+    <field id="w499231170" name="attrs.trackingNumber.originManufOrder" title="MO"/>
+   </insert>
+  </extend>
+ </grid>
+</object-views>

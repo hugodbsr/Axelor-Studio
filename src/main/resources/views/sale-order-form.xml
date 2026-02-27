@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_7.4.3.xsd" xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <form name="sale-order-form" title="Sale order" model="com.axelor.apps.sale.db.SaleOrder" extension="true">
+  <extend target="/">
+   <attribute name="onLoad" value="action-group-supplychain-saleorder-onload"/>
+  </extend>
+  <extend target="/panel-tabs[name='mainPanelTab'][hideIf='clientPartner == null || ($enableTradingNamesManagement &amp;amp;&amp;amp; company.tradingNameList != null &amp;amp;&amp;amp; company.tradingNameList.length != 0 &amp;amp;&amp;amp; tradingName == null)']/panel[name='contentPanel']/panel[name='descriptionPanel']/field[name='description']">
+   <attribute name="help" value=""/>
+   <attribute name="showTitle" value="false"/>
+   <attribute name="title" value=""/>
+  </extend>
+  <extend target="/panel[name='actionsPanel'][hideIf='clientPartner == null']/button[name='confirmOrderBtn'][showIf='statusSelect == 2']">
+   <attribute name="onClick" value="action-sale-group-confirmed"/>
+   <attribute name="conditionToCheck" value="!__config__.app.getApp('sale')?.isQuotationAndOrderSplitEnabled"/>
+  </extend>
+  <extend target="/panel-tabs[name='mainPanelTab'][hideIf='clientPartner == null || ($enableTradingNamesManagement &amp;amp;&amp;amp; company.tradingNameList != null &amp;amp;&amp;amp; company.tradingNameList.length != 0 &amp;amp;&amp;amp; tradingName == null)']/panel[name='bia-unallocated-lines-panel']">
+   <replace/>
+  </extend>
+  <extend target="/panel-tabs[name='mainPanelTab'][hideIf='clientPartner == null || ($enableTradingNamesManagement &amp;amp;&amp;amp; company.tradingNameList != null &amp;amp;&amp;amp; company.tradingNameList.length != 0 &amp;amp;&amp;amp; tradingName == null)']/panel[name='contentPanel']/panel[name='descriptionPanel']/field[name='printingComment']">
+   <replace/>
+  </extend>
+ </form>
+</object-views>

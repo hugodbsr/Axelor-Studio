@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_7.4.3.xsd" xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <form name="product-form" title="Product" model="com.axelor.apps.base.db.Product" extension="true">
+  <extend target="/">
+   <attribute name="onSave" value="action-group-product-onsave"/>
+  </extend>
+  <extend target="/panel[name='attrsPanel']">
+   <attribute name="hidden" value="true"/>
+  </extend>
+  <extend target="/panel[name='mainPanel']/panel[name='productInfoPanel']/panel[name='biaInfosProd']/panel[title='Infos Commerciales &amp;amp; Taxes']/field[name='isEcoEmb']">
+   <insert position="after">
+    <field name="pcmbProductTax" hidden="true" showIf="isPMCB" colSpan="6" domain="self.isTax = true"/>
+   </insert>
+  </extend>
+  <extend target="/panel[name='mainPanel']/panel[name='productInfoPanel']/panel[name='biaInfosProd']/panel[title='Infos Commerciales &amp;amp; Taxes']/field[name='pcmbProductTax'][showIf='isPMCB']">
+   <insert position="after">
+    <field name="ecoEmbProductTax" hidden="true" showIf="isEcoEmb" colSpan="6" domain="self.isTax = true"/>
+   </insert>
+  </extend>
+  <extend target="/panel-tabs[name='productSpecificAttributes']/panel[name='caracteristiquesBiaPanel']/field[xmlId='w3980636587'][name='attrs.biaAspect']">
+   <insert position="before">
+    <field id="w2259802951" name="attrs.biaCouleur" title="Couleur" colSpan="3"/>
+   </insert>
+  </extend>
+  <extend target="/panel-tabs[name='productSpecificAttributes']/panel[name='caracteristiquesBiaPanel']/field[xmlId='w2259802951'][name='attrs.biaCouleur']">
+   <insert position="after">
+    <field id="w3980636587" name="attrs.biaAspect" title="Aspect" colSpan="3" selection="custom-json-bia-aspect-produit"/>
+   </insert>
+  </extend>
+  <extend target="/panel-tabs[name='productSpecificAttributes']/panel[name='caracteristiquesBiaPanel']/field[xmlId='w3980636587'][name='attrs.biaAspect']">
+   <insert position="after">
+    <field id="w294177562" name="attrs.biaType" title="Type" selection="custom-json-bia-type-produit"/>
+   </insert>
+  </extend>
+  <extend target="/panel[name='mainPanel']/panel[name='productInfoPanel']/panel[name='productTypologyPanel']/field[name='codeTax'][showIf='isTax']">
+   <replace/>
+  </extend>
+  <extend target="/panel[name='mainPanel']/panel[name='productInfoPanel']/panel[name='biaInfosProd']/panel[title='Infos Commerciales &amp;amp; Taxes']/field[name='defaultPackaging']">
+   <replace/>
+  </extend>
+  <extend target="/panel-tabs[name='productSpecificAttributes']/panel[name='editionPanel']">
+   <replace/>
+  </extend>
+ </form>
+</object-views>

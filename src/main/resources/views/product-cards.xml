@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_7.4.3.xsd" xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <cards id="sale-product-cards" name="product-cards" title="Product" css="rect-image" model="com.axelor.apps.base.db.Product" orderBy="code,name">
+  <toolbar>
+   <button name="catalogBtn" title="Catalog" icon="fa-book" onClick="action-print-product-catalog"/>
+   <button name="checkDuplicateBtn" title="Check Duplicate" onClick="action-general-check-duplicate-records"/>
+  </toolbar>
+  <field name="picture"/>
+  <field name="fullName"/>
+  <field name="salePrice" x-currency="saleCurrency.symbol" x-scale="2"/>
+  <field name="saleCurrency.symbol"/>
+  <field name="productFamily"/>
+  <field name="productCategory"/>
+  <field name="internalDescription"/>
+  <field name="configurator.id"/>
+  <field name="$isCartManagementEnabled"/>
+  <template><![CDATA[
+<>
+	<strong>{$fmt('fullName')}</strong>
+	<Box d="grid" gridTemplateColumns="40% 60%">
+		<Box style={{ width: 128, height: 64 }}>
+			{picture && <Image src={$image('picture', 'content')} w={100} h={100}></Image>}
+			{!picture && <Image src="img/product-default.png"></Image>}
+		</Box>
+		<Box>
+			{$fmt('salePrice')} <Box/>
+			{productFamily.name} <Box/>
+			{productCategory.name}
+			</Box>
+		</Box>
+	<Box dangerouslySetInnerHTML={{__html : internalDescription}}></Box>
+	{configurator?.id && <Badge bg="danger">{_t('Customised')}</Badge>}
+
+	{$isCartManagementEnabled &&
+		<Box d="flex" justifyContent="flex-end">
+			<Button size="sm" variant="light" onClick={$action("action-product-method-add-to-cart")}>
+				<Icon icon="cart-plus-fill"/> {_t('Add to cart')}
+			</Button>
+		</Box>
+	}
+</>
+
+  ]]></template>
+ </cards>
+</object-views>

@@ -1,0 +1,21 @@
+plugins {
+  id 'com.axelor.app'
+}
+
+apply {
+  group 'com.axelor'
+  version '2.0.0'
+}
+
+axelor {
+  title = 'agilinfo-biallais'
+  description = 'agilinfo-biallais'
+}
+
+dependencies {
+  api 'com.axelor.apps:agilinfo-biallais:0.1-test'
+  api 'com.axelor.apps:axelor-stock:8.4.7'
+  api 'com.axelor.apps:axelor-intervention:8.4.7'
+  api 'com.axelor.apps:axelor-supplychain:8.4.7'
+  api 'com.axelor.apps:axelor-sale:8.4.16'
+}

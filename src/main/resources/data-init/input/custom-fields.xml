@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xml>
+<custom-fields>
+
+  <field
+    modelField="attrs"
+    name="biaCouleur"
+    model="com.axelor.apps.base.db.Product"
+    title="Couleur"
+    type="string"
+  />
+  <field
+    modelField="attrs"
+    selection="custom-json-bia-aspect-produit"
+    name="biaAspect"
+    model="com.axelor.apps.base.db.Product"
+    title="Aspect"
+    type="string"
+  />
+  <field
+    modelField="attrs"
+    selection="custom-json-bia-type-produit"
+    name="biaType"
+    model="com.axelor.apps.base.db.Product"
+    title="Type"
+    type="string"
+  />
+  <field
+    modelField="attrs"
+    name="trackingNumber.manufOrderOrigin"
+    model="com.axelor.apps.stock.db.StockLocationLine"
+    title="MO"
+    type="string"
+  />
+  <field
+    modelField="attrs"
+    name="trackingNumber.originManufOrder"
+    model="com.axelor.apps.stock.db.StockLocationLine"
+    title="MO"
+    type="string"
+  />
+
+</custom-fields>

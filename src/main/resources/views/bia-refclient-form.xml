@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<object-views xsi:schemaLocation="http://axelor.com/xml/ns/object-views https://axelor.com/xml/ns/object-views/object-views_7.4.3.xsd" xmlns="http://axelor.com/xml/ns/object-views" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <form name="bia-refclient-form" title="Référence client" model="com.agilinfo.apps.biallais.db.RefClient" extension="true">
+  <extend target="/panel[name='headerPanel']/field[name='statusSelect']">
+   <insert position="after">
+    <separator colSpan="12"/>
+   </insert>
+  </extend>
+  <extend target="/panel[name='headerPanel']/field[name='refType']">
+   <insert position="after">
+    <spacer/>
+   </insert>
+  </extend>
+  <extend target="/panel[name='headerPanel']/help">
+   <replace/>
+  </extend>
+  <extend target="/panel[name='headerPanel']/separator">
+   <replace/>
+  </extend>
+  <extend target="/panel[name='headerPanel']/spacer">
+   <replace/>
+  </extend>
+ </form>
+</object-views>
